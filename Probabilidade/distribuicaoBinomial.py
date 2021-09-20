@@ -2,20 +2,6 @@
 
 import math
 
-def esperanca(fp):
-    mi = 0
-    for i in range(len(fp)):
-        mi += i * fp[i]
-    return mi
-
-def variancia(fp, esperanca):
-    e2 = 0
-    for i in range(len(fp)):
-        e2 += (i ** 2) * fp[i]
-
-    variancia = e2 - (esperanca ** 2)
-    return variancia
-
 def binomio(n, k, p):
     
     comb = (math.factorial(n)) / (math.factorial(k) * math.factorial(n-k))
@@ -33,10 +19,10 @@ for k in range(n + 1):
     print(f"p(X = {k}) = {b}")
     fp.append(b)
 
-mi = esperanca(fp)
-print(f"\nA esperança é {mi}\n")
+esperanca = n*p
+print(f"\nA esperança é {esperanca}\n")
 
-var = variancia(fp, mi)
+var = n*p*(1-p)
 print(f"A variância é {var}\n")
 
 dp = math.sqrt(var)
